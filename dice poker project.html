@@ -1,287 +1,274 @@
-<table class="highlight tab-size js-file-line-container" data-paste-markdown-skip="" data-tab-size="8" style='box-sizing: border-box; border-spacing: 0px; border-collapse: collapse; tab-size: 8; color: rgb(36, 41, 46); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'>
-    <tbody style="box-sizing: border-box;">
-        <tr style="box-sizing: border-box;">
-            <td class="blob-code blob-code-inner js-file-line" style='box-sizing: border-box; padding: 0px 10px; position: relative; line-height: 20px; vertical-align: top; overflow: visible; font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace; font-size: 12px; color: var(--color-text-primary); overflow-wrap: normal; white-space: pre;'>
-                <p>from collections import Counter</p>
-                <p>import random</p>
-                <p>import sys</p>
-                <p><br></p>
-                <p>num_dice = 5</p>
-                <p>turn = 1</p>
-                <p>opp_turn = 1</p>
-                <p>round = 1</p>
-                <p>min = 1</p>
-                <p>max = 6</p>
-                <p>roll = &quot;y&quot;</p>
-                <p>NUMERAL_LIST = [range(min, max)]</p>
-                <p><br></p>
-                <p>current_hand = []</p>
-                <p>opponent_hand = []</p>
-                <p>my_score = 0</p>
-                <p>opp_score = 0</p>
-                <p>my_rounds = 0</p>
-                <p>opp_rounds = 0</p>
-                <p><br></p>
-                <p>while turn &lt; 2 and my_rounds &lt; 2 and opp_rounds &lt; 2 and roll.lower() == &quot;y&quot;:</p>
-                <p>&nbsp; &nbsp; current_hand = []</p>
-                <p>&nbsp; &nbsp; for i in range(num_dice):</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; i = current_hand.append(random.randint(min, max))</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; current_hand.sort()</p>
-                <p>&nbsp; &nbsp; turn = turn + 1</p>
-                <p>&nbsp; &nbsp; roll = &quot;&quot;</p>
-                <p>&nbsp; &nbsp; print(&quot;You rolled: &quot;, current_hand)</p>
-                <p><br></p>
-                <p>if opp_turn &lt; 2 and opp_score &lt;= my_score:</p>
-                <p>&nbsp; &nbsp; opponent_hand = []</p>
-                <p>&nbsp; &nbsp; for i in range(num_dice):</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; i = opponent_hand.append(random.randint(min, max))</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; opponent_hand.sort()</p>
-                <p>&nbsp; &nbsp; print(&apos;Your opponent rolled: &apos;, opponent_hand)</p>
-                <p><br></p>
-                <p>def again(z):</p>
-                <p>&nbsp; &nbsp; print(z)</p>
-                <p>&nbsp; &nbsp; i = 0</p>
-                <p>&nbsp; &nbsp; while i &lt;= 4:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; try:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; n = i + 1</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; print(&quot;Dice Number # : &quot;, n)</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; change = str(input(&quot;Would you like to reroll this die? y/n: &quot;))</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if change == &quot;Y&quot; or change == &quot;y&quot;:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; z[i] = random.randint(min, max)</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i += 1</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; elif change == &quot;N&quot; or change == &quot;n&quot;:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i += 1</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; elif change != &quot;Y&quot; or change != &quot;y&quot;:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise IOError</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; except IOError:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; print(&quot;You did not enter y or n.&quot;)</p>
-                <p>&nbsp; &nbsp; return z</p>
-                <p><br></p>
-                <p>z = current_hand</p>
-                <p>again(z)</p>
-                <p><br></p>
-                <p>if opp_turn &lt; 2 and opp_score &lt;= my_score:</p>
-                <p>&nbsp; &nbsp; opponent_hand = []</p>
-                <p>&nbsp; &nbsp; for i in range(num_dice):</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; i = opponent_hand.append(random.randint(min, max))</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; opponent_hand.sort()</p>
-                <p>&nbsp; &nbsp; print(&apos;Your opponent rolled: &apos;, opponent_hand)</p>
-                <p><br></p>
-                <p>print(&quot;You rolled: &quot;, current_hand)</p>
-                <p><br></p>
-                <p>current_hand = Counter(current_hand)</p>
-                <p>opponent_hand = Counter(opponent_hand)</p>
-                <p><br></p>
-                <p>def my_scoring():</p>
-                <p>&nbsp; &nbsp; global score</p>
-                <p>&nbsp; &nbsp; score = 0</p>
-                <p>&nbsp; &nbsp; for key in current_hand:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; if key == 6:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * current_hand[key])</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; elif key == 5:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * current_hand[key])</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; elif key == 4:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * current_hand[key])</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; elif key == 3:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * current_hand[key])</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; elif key == 2:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * current_hand[key])</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; elif key == 1:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * current_hand[key])</p>
-                <p>&nbsp; &nbsp; if 4 in current_hand.values(): # Four of a Kind</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; score = score + 2560</p>
-                <p>&nbsp; &nbsp; elif 3 in current_hand.values() and 2 in current_hand.values(): # Full House</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; if current_hand[6] == 3:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 2280</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; elif current_hand[5] == 3:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 2180</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; elif current_hand[4] == 3:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 2080</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; elif current_hand[3] == 3:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 1980</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; elif current_hand[2] == 3:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 1880</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; else:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 1280</p>
-                <p>&nbsp; &nbsp; elif (1 in current_hand and 2 in current_hand and 3 in current_hand and 4 in current_hand and 5 in current_hand) \</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; or (2 in current_hand and 3 in current_hand and 4 in current_hand and 5 in current_hand and 6 in current_hand): # Straight</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 640</p>
-                <p>&nbsp; &nbsp; elif 3 in current_hand.values(): # Three of a Kind</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; score = score + 320</p>
-                <p>&nbsp; &nbsp; elif 2 in current_hand.values(): # Pair or Two Pair</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; for value in current_hand.values():</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if value == 2:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 80</p>
-                <p>&nbsp; &nbsp; return score</p>
-                <p><br></p>
-                <p>def opp_scoring():</p>
-                <p>&nbsp; &nbsp; global score</p>
-                <p>&nbsp; &nbsp; score = 0</p>
-                <p>&nbsp; &nbsp; for key in opponent_hand:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; if key == 6:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * opponent_hand[key])</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; elif key == 5:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * opponent_hand[key])</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; elif key == 4:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * opponent_hand[key])</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; elif key == 3:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * opponent_hand[key])</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; elif key == 2:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * opponent_hand[key])</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; elif key == 1:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * opponent_hand[key])</p>
-                <p>&nbsp; &nbsp; if 4 in opponent_hand.values(): # Four of a Kind</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; score = score + 2560</p>
-                <p>&nbsp; &nbsp; elif 3 in opponent_hand.values() and 2 in opponent_hand.values(): # Full House</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; if opponent_hand[6] == 3:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 2280</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; elif opponent_hand[5] == 3:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 2180</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; elif opponent_hand[4] == 3:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 2080</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; elif opponent_hand[3] == 3:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 1980</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; elif opponent_hand[2] == 3:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 1880</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; else:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 1280</p>
-                <p>&nbsp; &nbsp; elif (1 in opponent_hand and 2 in opponent_hand and 3 in opponent_hand and 4 in opponent_hand and 5 in opponent_hand) \</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; or (2 in opponent_hand and 3 in opponent_hand and 4 in opponent_hand and 5 in opponent_hand and 6 in opponent_hand): # Straight</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 640</p>
-                <p>&nbsp; &nbsp; elif 3 in opponent_hand.values(): # Three of a Kind</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; score = score + 320</p>
-                <p>&nbsp; &nbsp; elif 2 in opponent_hand.values(): # Pair or Two Pair</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; for value in opponent_hand.values():</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if value == 2:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 80</p>
-                <p>&nbsp; &nbsp; return score</p>
-                <p><br></p>
-                <p>my_score = my_scoring()</p>
-                <p>opp_score = opp_scoring()</p>
-                <p><br></p>
-                <p>def winner():</p>
-                <p>&nbsp; &nbsp; if my_score &gt; opp_score:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; global my_rounds</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; print(&quot;You win!&quot;)</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; my_rounds = my_rounds + 1</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; global round</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; round = round + 1</p>
-                <p>&nbsp; &nbsp; elif my_score == opp_score:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; print(&quot;It&apos;s a tie. &nbsp;Starting next round.&quot;)</p>
-                <p>&nbsp; &nbsp; else:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; global opp_rounds</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; print(&quot;You lose!&quot;)</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; opp_rounds = opp_rounds + 1</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; round = round + 1</p>
-                <p>&nbsp; &nbsp; print(&quot;The score is &quot; + str(my_rounds) + &quot; to &quot;, str(opp_rounds))</p>
-                <p><br></p>
-                <p>winner()</p>
-                <p>print(&quot;Round number: &quot;, round)</p>
-                <p><br></p>
-                <p>turn = 1</p>
-                <p>opp_turn = 1</p>
-                <p>current_hand = []</p>
-                <p>opponent_hand = []</p>
-                <p>my_score = 0</p>
-                <p>opp_score = 0</p>
-                <p>roll = &quot;y&quot;</p>
-                <p><br></p>
-                <p>while turn &lt; 2 and my_rounds &lt; 2 and opp_rounds &lt; 2 and roll.lower() == &quot;y&quot;:</p>
-                <p>&nbsp; &nbsp; current_hand = []</p>
-                <p>&nbsp; &nbsp; for i in range(num_dice):</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; i = current_hand.append(random.randint(min, max))</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; current_hand.sort()</p>
-                <p>&nbsp; &nbsp; turn = turn + 1</p>
-                <p>&nbsp; &nbsp; roll = &quot;&quot;</p>
-                <p>&nbsp; &nbsp; print(&quot;You rolled: &quot;, current_hand)</p>
-                <p><br></p>
-                <p>if opp_turn &lt; 2 and opp_score &lt;= my_score:</p>
-                <p>&nbsp; &nbsp; opponent_hand = []</p>
-                <p>&nbsp; &nbsp; for i in range(num_dice):</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; i = opponent_hand.append(random.randint(min, max))</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; opponent_hand.sort()</p>
-                <p>&nbsp; &nbsp; print(&apos;Your opponent rolled: &apos;, opponent_hand)</p>
-                <p><br></p>
-                <p>z = current_hand</p>
-                <p>again(z)</p>
-                <p><br></p>
-                <p>print(&quot;You rolled: &quot;, current_hand)</p>
-                <p><br></p>
-                <p>current_hand = Counter(current_hand)</p>
-                <p>opponent_hand = Counter(opponent_hand)</p>
-                <p><br></p>
-                <p>my_score = my_scoring()</p>
-                <p>print(my_score)</p>
-                <p>opp_score = opp_scoring()</p>
-                <p>print(opp_score)</p>
-                <p><br></p>
-                <p>winner()</p>
-                <p><br></p>
-                <p>def game_over():</p>
-                <p>&nbsp; &nbsp; if my_rounds == 2:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; sys.exit(&quot;You win!&quot;)</p>
-                <p>&nbsp; &nbsp; elif opp_rounds == 2:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; sys.exit(&quot;You lose!&quot;)</p>
-                <p>&nbsp; &nbsp; else:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; pass</p>
-                <p><br></p>
-                <p>game_over()</p>
-                <p>print(&quot;Round number: &quot;, round)</p>
-                <p><br></p>
-                <p>turn = 1</p>
-                <p>opp_turn = 1</p>
-                <p>current_hand = []</p>
-                <p>opponent_hand = []</p>
-                <p>my_score = 0</p>
-                <p>opp_score = 0</p>
-                <p>roll = &quot;y&quot;</p>
-                <p><br></p>
-                <p>while turn &lt; 2 and my_rounds &lt; 2 and opp_rounds &lt; 2 and roll.lower() == &quot;y&quot;:</p>
-                <p>&nbsp; &nbsp; current_hand = []</p>
-                <p>&nbsp; &nbsp; for i in range(num_dice):</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; i = current_hand.append(random.randint(min, max))</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; current_hand.sort()</p>
-                <p>&nbsp; &nbsp; turn = turn + 1</p>
-                <p>&nbsp; &nbsp; roll = &quot;&quot;</p>
-                <p>&nbsp; &nbsp; print(&quot;You rolled: &quot;, current_hand)</p>
-                <p><br></p>
-                <p>if opp_turn &lt; 2 and opp_score &lt;= my_score:</p>
-                <p>&nbsp; &nbsp; opponent_hand = []</p>
-                <p>&nbsp; &nbsp; for i in range(num_dice):</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; i = opponent_hand.append(random.randint(min, max))</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; opponent_hand.sort()</p>
-                <p>&nbsp; &nbsp; print(&apos;Your opponent rolled: &apos;, opponent_hand)</p>
-                <p><br></p>
-                <p>z = current_hand</p>
-                <p>again(z)</p>
-                <p><br></p>
-                <p>print(&quot;You rolled: &quot;, current_hand)</p>
-                <p><br></p>
-                <p>current_hand = Counter(current_hand)</p>
-                <p>opponent_hand = Counter(opponent_hand)</p>
-                <p><br></p>
-                <p>my_score = my_scoring()</p>
-                <p>print(my_score)</p>
-                <p>opp_score = opp_scoring()</p>
-                <p>print(opp_score)</p>
-                <p><br></p>
-                <p>winner()</p>
-                <p><br></p>
-                <p>def game_over():</p>
-                <p>&nbsp; &nbsp; if my_rounds == 2:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; sys.exit(&quot;You win!&quot;)</p>
-                <p>&nbsp; &nbsp; elif opp_rounds == 2:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; sys.exit(&quot;You lose!&quot;)</p>
-                <p>&nbsp; &nbsp; else:</p>
-                <p>&nbsp; &nbsp; &nbsp; &nbsp; sys.exit(&quot;It&apos;s a tie!&quot;)</p>
-                <p><br></p>
-                <p>game_over()</p><br>
-            </td>
-        </tr>
-        <tr style="box-sizing: border-box; background-color: initial;">
-            <td class="blob-num js-line-number" data-line-number="274" style='box-sizing: border-box; padding: 0px 10px; width: 50px; min-width: 50px; font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace; font-size: 12px; line-height: 20px; color: var(--color-diff-blob-num-text); text-align: right; white-space: nowrap; vertical-align: top; cursor: pointer; user-select: none;'><br></td>
-            <td class="blob-code blob-code-inner js-file-line" style='box-sizing: border-box; padding: 0px 10px; position: relative; line-height: 20px; vertical-align: top; overflow: visible; font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace; font-size: 12px; color: var(--color-text-primary); overflow-wrap: normal; white-space: pre;'><br></td>
-        </tr>
-    </tbody>
-</table>
+<p>from collections import Counter</p>
+<p>import random</p>
+<p>import sys</p>
 <p><br></p>
+<p>num_dice = 5</p>
+<p>turn = 1</p>
+<p>opp_turn = 1</p>
+<p>round = 1</p>
+<p>min = 1</p>
+<p>max = 6</p>
+<p>roll = &quot;y&quot;</p>
+<p>NUMERAL_LIST = [range(min, max)]</p>
+<p><br></p>
+<p>current_hand = []</p>
+<p>opponent_hand = []</p>
+<p>my_score = 0</p>
+<p>opp_score = 0</p>
+<p>my_rounds = 0</p>
+<p>opp_rounds = 0</p>
+<p><br></p>
+<p>while turn &lt; 2 and my_rounds &lt; 2 and opp_rounds &lt; 2 and roll.lower() == &quot;y&quot;:</p>
+<p>&nbsp; &nbsp; current_hand = []</p>
+<p>&nbsp; &nbsp; for i in range(num_dice):</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; i = current_hand.append(random.randint(min, max))</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; current_hand.sort()</p>
+<p>&nbsp; &nbsp; turn = turn + 1</p>
+<p>&nbsp; &nbsp; roll = &quot;&quot;</p>
+<p>&nbsp; &nbsp; print(&quot;You rolled: &quot;, current_hand)</p>
+<p><br></p>
+<p>if opp_turn &lt; 2 and opp_score &lt;= my_score:</p>
+<p>&nbsp; &nbsp; opponent_hand = []</p>
+<p>&nbsp; &nbsp; for i in range(num_dice):</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; i = opponent_hand.append(random.randint(min, max))</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; opponent_hand.sort()</p>
+<p>&nbsp; &nbsp; print(&apos;Your opponent rolled: &apos;, opponent_hand)</p>
+<p><br></p>
+<p>def again(z):</p>
+<p>&nbsp; &nbsp; print(z)</p>
+<p>&nbsp; &nbsp; i = 0</p>
+<p>&nbsp; &nbsp; while i &lt;= 4:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; try:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; n = i + 1</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; print(&quot;Dice Number # : &quot;, n)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; change = str(input(&quot;Would you like to reroll this die? y/n: &quot;))</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if change == &quot;Y&quot; or change == &quot;y&quot;:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; z[i] = random.randint(min, max)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i += 1</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; elif change == &quot;N&quot; or change == &quot;n&quot;:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i += 1</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; elif change != &quot;Y&quot; or change != &quot;y&quot;:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; raise IOError</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; except IOError:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; print(&quot;You did not enter y or n.&quot;)</p>
+<p>&nbsp; &nbsp; return z</p>
+<p><br></p>
+<p>z = current_hand</p>
+<p>again(z)</p>
+<p><br></p>
+<p>if opp_turn &lt; 2 and opp_score &lt;= my_score:</p>
+<p>&nbsp; &nbsp; opponent_hand = []</p>
+<p>&nbsp; &nbsp; for i in range(num_dice):</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; i = opponent_hand.append(random.randint(min, max))</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; opponent_hand.sort()</p>
+<p>&nbsp; &nbsp; print(&apos;Your opponent rolled: &apos;, opponent_hand)</p>
+<p><br></p>
+<p>print(&quot;You rolled: &quot;, current_hand)</p>
+<p><br></p>
+<p>current_hand = Counter(current_hand)</p>
+<p>opponent_hand = Counter(opponent_hand)</p>
+<p><br></p>
+<p>def my_scoring():</p>
+<p>&nbsp; &nbsp; global score</p>
+<p>&nbsp; &nbsp; score = 0</p>
+<p>&nbsp; &nbsp; for key in current_hand:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if key == 6:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * current_hand[key])</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; elif key == 5:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * current_hand[key])</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; elif key == 4:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * current_hand[key])</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; elif key == 3:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * current_hand[key])</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; elif key == 2:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * current_hand[key])</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; elif key == 1:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * current_hand[key])</p>
+<p>&nbsp; &nbsp; if 4 in current_hand.values(): # Four of a Kind</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; score = score + 2560</p>
+<p>&nbsp; &nbsp; elif 3 in current_hand.values() and 2 in current_hand.values(): # Full House</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if current_hand[6] == 3:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 2280</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; elif current_hand[5] == 3:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 2180</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; elif current_hand[4] == 3:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 2080</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; elif current_hand[3] == 3:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 1980</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; elif current_hand[2] == 3:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 1880</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; else:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 1280</p>
+<p>&nbsp; &nbsp; elif (1 in current_hand and 2 in current_hand and 3 in current_hand and 4 in current_hand and 5 in current_hand) \</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; or (2 in current_hand and 3 in current_hand and 4 in current_hand and 5 in current_hand and 6 in current_hand): # Straight</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 640</p>
+<p>&nbsp; &nbsp; elif 3 in current_hand.values(): # Three of a Kind</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; score = score + 320</p>
+<p>&nbsp; &nbsp; elif 2 in current_hand.values(): # Pair or Two Pair</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; for value in current_hand.values():</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if value == 2:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 80</p>
+<p>&nbsp; &nbsp; return score</p>
+<p><br></p>
+<p>def opp_scoring():</p>
+<p>&nbsp; &nbsp; global score</p>
+<p>&nbsp; &nbsp; score = 0</p>
+<p>&nbsp; &nbsp; for key in opponent_hand:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if key == 6:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * opponent_hand[key])</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; elif key == 5:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * opponent_hand[key])</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; elif key == 4:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * opponent_hand[key])</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; elif key == 3:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * opponent_hand[key])</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; elif key == 2:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * opponent_hand[key])</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; elif key == 1:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + (key * opponent_hand[key])</p>
+<p>&nbsp; &nbsp; if 4 in opponent_hand.values(): # Four of a Kind</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; score = score + 2560</p>
+<p>&nbsp; &nbsp; elif 3 in opponent_hand.values() and 2 in opponent_hand.values(): # Full House</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; if opponent_hand[6] == 3:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 2280</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; elif opponent_hand[5] == 3:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 2180</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; elif opponent_hand[4] == 3:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 2080</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; elif opponent_hand[3] == 3:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 1980</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; elif opponent_hand[2] == 3:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 1880</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; else:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 1280</p>
+<p>&nbsp; &nbsp; elif (1 in opponent_hand and 2 in opponent_hand and 3 in opponent_hand and 4 in opponent_hand and 5 in opponent_hand) \</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; or (2 in opponent_hand and 3 in opponent_hand and 4 in opponent_hand and 5 in opponent_hand and 6 in opponent_hand): # Straight</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 640</p>
+<p>&nbsp; &nbsp; elif 3 in opponent_hand.values(): # Three of a Kind</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; score = score + 320</p>
+<p>&nbsp; &nbsp; elif 2 in opponent_hand.values(): # Pair or Two Pair</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; for value in opponent_hand.values():</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if value == 2:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; score = score + 80</p>
+<p>&nbsp; &nbsp; return score</p>
+<p><br></p>
+<p>my_score = my_scoring()</p>
+<p>opp_score = opp_scoring()</p>
+<p><br></p>
+<p>def winner():</p>
+<p>&nbsp; &nbsp; if my_score &gt; opp_score:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; global my_rounds</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; print(&quot;You win!&quot;)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; my_rounds = my_rounds + 1</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; global round</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; round = round + 1</p>
+<p>&nbsp; &nbsp; elif my_score == opp_score:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; print(&quot;It&apos;s a tie. &nbsp;Starting next round.&quot;)</p>
+<p>&nbsp; &nbsp; else:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; global opp_rounds</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; print(&quot;You lose!&quot;)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; opp_rounds = opp_rounds + 1</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; round = round + 1</p>
+<p>&nbsp; &nbsp; print(&quot;The score is &quot; + str(my_rounds) + &quot; to &quot;, str(opp_rounds))</p>
+<p><br></p>
+<p>winner()</p>
+<p>print(&quot;Round number: &quot;, round)</p>
+<p><br></p>
+<p>turn = 1</p>
+<p>opp_turn = 1</p>
+<p>current_hand = []</p>
+<p>opponent_hand = []</p>
+<p>my_score = 0</p>
+<p>opp_score = 0</p>
+<p>roll = &quot;y&quot;</p>
+<p><br></p>
+<p>while turn &lt; 2 and my_rounds &lt; 2 and opp_rounds &lt; 2 and roll.lower() == &quot;y&quot;:</p>
+<p>&nbsp; &nbsp; current_hand = []</p>
+<p>&nbsp; &nbsp; for i in range(num_dice):</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; i = current_hand.append(random.randint(min, max))</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; current_hand.sort()</p>
+<p>&nbsp; &nbsp; turn = turn + 1</p>
+<p>&nbsp; &nbsp; roll = &quot;&quot;</p>
+<p>&nbsp; &nbsp; print(&quot;You rolled: &quot;, current_hand)</p>
+<p><br></p>
+<p>if opp_turn &lt; 2 and opp_score &lt;= my_score:</p>
+<p>&nbsp; &nbsp; opponent_hand = []</p>
+<p>&nbsp; &nbsp; for i in range(num_dice):</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; i = opponent_hand.append(random.randint(min, max))</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; opponent_hand.sort()</p>
+<p>&nbsp; &nbsp; print(&apos;Your opponent rolled: &apos;, opponent_hand)</p>
+<p><br></p>
+<p>z = current_hand</p>
+<p>again(z)</p>
+<p><br></p>
+<p>print(&quot;You rolled: &quot;, current_hand)</p>
+<p><br></p>
+<p>current_hand = Counter(current_hand)</p>
+<p>opponent_hand = Counter(opponent_hand)</p>
+<p><br></p>
+<p>my_score = my_scoring()</p>
+<p>print(my_score)</p>
+<p>opp_score = opp_scoring()</p>
+<p>print(opp_score)</p>
+<p><br></p>
+<p>winner()</p>
+<p><br></p>
+<p>def game_over():</p>
+<p>&nbsp; &nbsp; if my_rounds == 2:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; sys.exit(&quot;You win!&quot;)</p>
+<p>&nbsp; &nbsp; elif opp_rounds == 2:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; sys.exit(&quot;You lose!&quot;)</p>
+<p>&nbsp; &nbsp; else:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; pass</p>
+<p><br></p>
+<p>game_over()</p>
+<p>print(&quot;Round number: &quot;, round)</p>
+<p><br></p>
+<p>turn = 1</p>
+<p>opp_turn = 1</p>
+<p>current_hand = []</p>
+<p>opponent_hand = []</p>
+<p>my_score = 0</p>
+<p>opp_score = 0</p>
+<p>roll = &quot;y&quot;</p>
+<p><br></p>
+<p>while turn &lt; 2 and my_rounds &lt; 2 and opp_rounds &lt; 2 and roll.lower() == &quot;y&quot;:</p>
+<p>&nbsp; &nbsp; current_hand = []</p>
+<p>&nbsp; &nbsp; for i in range(num_dice):</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; i = current_hand.append(random.randint(min, max))</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; current_hand.sort()</p>
+<p>&nbsp; &nbsp; turn = turn + 1</p>
+<p>&nbsp; &nbsp; roll = &quot;&quot;</p>
+<p>&nbsp; &nbsp; print(&quot;You rolled: &quot;, current_hand)</p>
+<p><br></p>
+<p>if opp_turn &lt; 2 and opp_score &lt;= my_score:</p>
+<p>&nbsp; &nbsp; opponent_hand = []</p>
+<p>&nbsp; &nbsp; for i in range(num_dice):</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; i = opponent_hand.append(random.randint(min, max))</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; opponent_hand.sort()</p>
+<p>&nbsp; &nbsp; print(&apos;Your opponent rolled: &apos;, opponent_hand)</p>
+<p><br></p>
+<p>z = current_hand</p>
+<p>again(z)</p>
+<p><br></p>
+<p>print(&quot;You rolled: &quot;, current_hand)</p>
+<p><br></p>
+<p>current_hand = Counter(current_hand)</p>
+<p>opponent_hand = Counter(opponent_hand)</p>
+<p><br></p>
+<p>my_score = my_scoring()</p>
+<p>print(my_score)</p>
+<p>opp_score = opp_scoring()</p>
+<p>print(opp_score)</p>
+<p><br></p>
+<p>winner()</p>
+<p><br></p>
+<p>def game_over():</p>
+<p>&nbsp; &nbsp; if my_rounds == 2:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; sys.exit(&quot;You win!&quot;)</p>
+<p>&nbsp; &nbsp; elif opp_rounds == 2:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; sys.exit(&quot;You lose!&quot;)</p>
+<p>&nbsp; &nbsp; else:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; sys.exit(&quot;It&apos;s a tie!&quot;)</p>
+<p><br></p>
+<p>game_over()</p>
