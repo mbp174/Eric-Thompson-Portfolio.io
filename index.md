@@ -5,4 +5,4 @@ Even though I'm new to coding, I've been working on learning more every day.  Cu
 
 ## Projects
 ### Hurricane Project - Python
-project1.index.html
+<a href="project1.index.html">Page 1</a> 
