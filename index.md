@@ -5,7 +5,7 @@ Even though I'm new to coding, I've been working on learning more every day.  Cu
 
 ## Projects
 ### Hurricane Project - Python
-<a href="project1.index.html">Page 1</a> 
+<a href="https://github.com/mbp174/Codecademy---Python-Hurricane-Project">Page 1</a> 
 
 ### Dice Poker Project
 <a href="https://github.com/mbp174/Die_Simulator">Page 2</a>
