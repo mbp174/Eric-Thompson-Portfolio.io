@@ -1,7 +1,7 @@
 # Eric Thompson's Portfolio
 Welcome!  This is where you can find examples of projects I've completed on my coding journey.
 
-Even though I'm new to coding, I've been working on learning more every day.  Currently, I am using Codecademy's Data Analyst path to learn the skills I need to be able to analyze data and communicate my findings effectively.  This includes Python, SQL, web scraping, data cleaning, summary statistics, and data visualization.
+Even though I'm new to coding, I've been working on learning more every day.  Currently, I am using Codecademy's Data Scientist path to learn the skills I need to be able to analyze data and communicate my findings effectively.  This includes Python, SQL, web scraping, data cleaning, summary statistics, and data visualization.
 
 ## Projects
 ### <a href="https://github.com/mbp174/Codecademy---Python-Hurricane-Project">Hurricane Analysis - Python Project</a> 
